@@ -30,9 +30,7 @@ def deploy(fingerengine, fingerprint):
     if len(fp) > 0:
         fp = fp[0]
     else:
-        ver = utility.capture_input("Could not reliably determine version, "
-                                    "please enter the remote JBoss instance"
-                                    " version")
+        ver = '4.2'
         if len(ver) > 0:
             if '.' not in ver:
                 ver += '.0'
@@ -47,10 +45,6 @@ def deploy(fingerengine, fingerprint):
             return
 
     if '.war' in war_file:
-        tmp = utility.capture_input("This deployer requires a JSP, default to cmd.jsp? [Y/n]")
-        if 'n' in tmp.lower():
-                    return
-
         war_file = abspath("./src/lib/resources/cmd.jsp")
         war_name = "cmd"
 

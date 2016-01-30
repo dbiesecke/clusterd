@@ -17,10 +17,6 @@ def deploy(fingerengine, fingerprint):
     war_file = abspath(fingerengine.options.deploy)
     war_name = parse_war_path(war_file)
     if '.war' in war_file:
-        tmp = utility.capture_input("This deployer requires a JSP, default to cmd.jsp? [Y/n]")
-        if "n" in tmp.lower():
-            return
-
         war_file = abspath("./src/lib/resources/cmd.jsp")
         war_name = "cmd"
 

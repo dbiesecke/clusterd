@@ -34,12 +34,6 @@ def deploy(fingerengine, fingerprint):
                   "6.1" : 19
                   }
 
-    if fingerprint.version == "3.0":
-        tmp = utility.capture_input("Version 3.0 has a strict WAR XML structure.  "
-                              "Ensure your WAR is compatible with 3.0 [Y/n]")
-        if 'n' in tmp.lower():
-            return
-
     utility.Msg("Preparing to deploy {0}..".format(war_file))
 
     url = 'http://{0}:{1}/jmx-console/HtmlAdaptor'.format(
